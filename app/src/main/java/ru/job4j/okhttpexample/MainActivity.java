@@ -8,7 +8,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class MainActivity extends AppCompatActivity implements AuthorizationInGithub.getAnswerFromGitHubAPI {
+public class MainActivity extends AppCompatActivity implements AuthorizationGithub.Callback {
     private Button signIn;
     private EditText login, password;
 
@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity implements AuthorizationInGi
     }
 
     private void clickOnSignIn(){
-        new AuthorizationInGithub(String.valueOf(login.getText()),String.valueOf(password.getText()),this).signIn();
+        new AuthorizationGithub(String.valueOf(login.getText()),String.valueOf(password.getText()),this).signIn();
         signIn.setEnabled(false);
     }
 
